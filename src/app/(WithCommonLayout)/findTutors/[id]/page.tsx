@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from 'react'
 import { ITutors } from '@/types';
 import { useParams } from 'next/navigation';
+import TutorsProfile from "@/components/findTutor/tutorsProfile/TutorsProfile";
+import ProfileSection from "@/components/findTutor/tutorsInfo/TutorsInfoSection";
+
 
 const Page = () => {
     const [tutor, setTutor] = useState<ITutors | null>(null);
@@ -37,16 +40,16 @@ const Page = () => {
     }
   }, [id]);
   return (
-    <div className="container mt-20 bg-amber-50 w-full mx-auto">
+    <div className="container mt-20 bg-[#bd7a855a] w-full mx-auto rounded-md mb-3.5">
       <div className="flex py-10 justify-start items-start">
-        {/* <TutorsProfile
+        <TutorsProfile
           name={tutor?.name}
           photo={tutor?.photo}
           location={tutor?.location}
           email={tutor?.email}
         />
-        <ProfileSection tutor={tutor} /> */}
-        {id}
+        <ProfileSection tutor={tutor} />
+        
       </div>
     </div>
   )
