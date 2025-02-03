@@ -115,7 +115,7 @@ export default function Navbar() {
 
                 {/* Middle - Menu (Hidden on Mobile) */}
                 <ul className="hidden md:flex space-x-10 text-white px-8 lg:px-0 py-10 lg:py-5">
-                    <Link
+                <li className="pt-2"> <Link
                         href="/"
                         className={
                             isActiveLink("/")
@@ -124,7 +124,7 @@ export default function Navbar() {
                         }
                     >
                         Home
-                    </Link>
+                    </Link></li>
                     <li className="pt-2"> <Link
                         href="/findTutors"
                         className={
