@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from 'next/font/google'
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
+import Providers from "@/providers/Providers";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -26,8 +28,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className='scroll-smooth'>
-        <body className={inter.className}>
-        {children}
+      <body className={inter.className}>
+        <Providers>
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+          />
+          {children}
+        </Providers>
       </body>
     </html>
   );
