@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { useUser } from "@/context/UserContext";
 import { sendTutorRequest } from "@/services/sendTutorRequest";
 import { ITutors } from "@/types";
-// import { ITutors } from "@/types";
 import { MessageCircle } from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
