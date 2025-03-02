@@ -6,7 +6,7 @@ import TutorsProfile from "@/components/findTutor/tutorsProfile/TutorsProfile";
 import ProfileSection from "@/components/findTutor/tutorsInfo/TutorsInfoSection";
 
 
-const Page = () => {
+const TeacherDetails = () => {
     const [tutor, setTutor] = useState<ITutors | null>(null);
   // console.log(tutor, "fast get");
   const params = useParams();
@@ -55,4 +55,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default TeacherDetails

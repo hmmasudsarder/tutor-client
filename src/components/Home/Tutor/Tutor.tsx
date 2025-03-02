@@ -33,7 +33,7 @@ const Tutor = () => {
         Here are few of the Verified Teachers
       </p>
       <div className="flex justify-end mb-7">
-        <button className="px-2 py-2 bg-[#40282C] text-sm rounded-md">View More</button>
+        <button className="px-2 py-2 bg-[#40282C] text-sm rounded-md text-white">View More</button>
       </div>
       <div className="grid xl:grid-cols-4  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center gap-5 ">
         {tutorsData.map((tutor) => (
