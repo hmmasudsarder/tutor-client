@@ -27,12 +27,6 @@ const HeroBanner = () => {
                 >
                   Our experienced tutors provide in-depth knowledge and personalized guidance to help you excel in your studies.  Start your journey to academic success today.
                 </p>
-
-                {/* <Link href={heroSection?.btn_link}>
-                  <PrimaryButton className="mt-5 border-2 border-white px-4 py-2 text-white rounded-md">
-                    {heroSection?.btn_title}
-                  </PrimaryButton>
-                </Link> */}
               </div>
             </div>
           </Container>
