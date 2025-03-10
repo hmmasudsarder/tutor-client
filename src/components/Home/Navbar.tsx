@@ -4,10 +4,12 @@ import { LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useUser } from "@/context/UserContext";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const { user, setIsLoading } = useUser();
     const isActiveLink = (href: string) => {
         return href === pathname;
     };
@@ -115,7 +117,7 @@ export default function Navbar() {
 
                 {/* Middle - Menu (Hidden on Mobile) */}
                 <ul className="hidden md:flex space-x-10 text-white px-8 lg:px-0 py-10 lg:py-5">
-                <li className="pt-2"> <Link
+                    <li className="pt-2"> <Link
                         href="/"
                         className={
                             isActiveLink("/")
@@ -155,14 +157,10 @@ export default function Navbar() {
                     >
                         Blog
                     </Link></li>
-                    
-                    {/* <li className="cursor-pointer bg-white text-[#40282C] px-4 py-2 rounded-md">About</li>
-                    <li className="cursor-pointer bg-white text-[#40282C] px-4 py-2 rounded-md">Blog</li>
-                    <li className="cursor-pointer bg-white text-[#40282C] px-4 py-2 rounded-md">FAQ</li>  */}
                 </ul>
 
                 {/* Right Side - Profile Image & Dropdown */}
-                <div className="relative">
+                {!user ?(<Link href={`/login?redirect=${pathname}`}>Login</Link>): (<div className="relative">
                     <button onClick={() => setIsOpen(!isOpen)} className="flex items-center">
                         <Image
                             src="https://i.pravatar.cc/40"
@@ -175,7 +173,7 @@ export default function Navbar() {
 
                     {/* Dropdown Menu */}
                     {isOpen && (
-                        <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg border">
+                        <div className="absolute right-0 mt-1 w-48 bg-white shadow-lg rounded-lg border z-50 duration-500 ease-in-out">
                             <p className="px-4 py-2 text-gray-700 font-semibold">My Account</p>
                             <ul className="text-gray-700">
                                 <ul className="flex flex-col md:hidden space-x-6 text-gray-700 font-medium">
@@ -193,7 +191,7 @@ export default function Navbar() {
                             </ul>
                         </div>
                     )}
-                </div>
+                </div>) }
             </div>
         </nav>
     );

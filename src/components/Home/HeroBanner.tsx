@@ -16,7 +16,7 @@ const HeroBanner = () => {
           />
           <Container>
             <div className="absolute inset-0 flex items-center justify-center text-center w-full h-full lg:px-[300px] px-2 py-3">
-              <div>
+              <div className='text-white'>
                 <h2
                   className={`lg:text-[40px] text-[24px] font-[600] text-white mb-3`}
                 >

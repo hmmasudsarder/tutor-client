@@ -13,7 +13,6 @@ const ProfileSection = ({ tutor }: { tutor: ITutors | null }) => {
   if (!tutor) {
     return <p>Loading tutor data...</p>;
   }
-  console.log(tutor, "one tutor");
 
   const handleRequest = async () => {
     try {

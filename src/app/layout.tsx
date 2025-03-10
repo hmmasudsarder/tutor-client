@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <Toaster
-            position="top-center"
+            position="top-right"
             reverseOrder={false}
           />
           {children}
