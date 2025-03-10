@@ -1,11 +1,16 @@
+import HeroBanner from '@/components/findTutor/findTutorPage/HeroBanner'
+import SearchTeacher from '@/components/findTutor/findTutorPage/SearchTeacher'
 import React from 'react'
 
-const page = () => {
+const teacherPage = () => {
   return (
     <div>
-      findTutors
+      <HeroBanner/>
+      <div className="w-full px-10 mx-auto container mt-10">
+      <SearchTeacher />
+    </div>
     </div>
   )
 }
 
-export default page
+export default teacherPage
