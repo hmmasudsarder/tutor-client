@@ -156,11 +156,23 @@ export default function Navbar() {
                         }
                     >
                         Blog
-                    </Link></li>
+                    </Link>
+                    </li>
+                    <li className="pt-2"> <Link
+                        href="/faq"
+                        className={
+                            isActiveLink("/faq")
+                                ? "bg-white text-[#40282C] px-4 py-2 rounded-md"
+                                : ""
+                        }
+                    >
+                        Faq
+                    </Link>
+                    </li>
                 </ul>
 
                 {/* Right Side - Profile Image & Dropdown */}
-                {!user ?(<Link href={`/login?redirect=${pathname}`}>Login</Link>): (<div className="relative">
+                {!user ? (<Link href={`/login?redirect=${pathname}`}>Login</Link>) : (<div className="relative">
                     <button onClick={() => setIsOpen(!isOpen)} className="flex items-center">
                         <Image
                             src="https://i.pravatar.cc/40"
@@ -191,7 +203,7 @@ export default function Navbar() {
                             </ul>
                         </div>
                     )}
-                </div>) }
+                </div>)}
             </div>
         </nav>
     );

@@ -34,7 +34,7 @@ const Tutor = () => {
       </p>
       <div className="flex justify-end mb-7">
         <Link href="/findTutors">
-          <button className="px-2 py-2 bg-[#40282C] text-sm rounded-md text-white">View More</button>
+          <button className="px-2 py-2 bg-[#40282C] text-sm rounded-md text-white cursor-pointer">View More</button>
         </Link>
       </div>
       <div className="grid xl:grid-cols-4  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center gap-5 ">
