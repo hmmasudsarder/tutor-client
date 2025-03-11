@@ -3,16 +3,33 @@ import { useState } from "react";
 import { LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
+import { logout } from "@/services/AuthService";
+import { protectedRoutes } from "@/contants";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const pathname = usePathname();
     const { user, setIsLoading } = useUser();
     const isActiveLink = (href: string) => {
         return href === pathname;
     };
+    const pathname = usePathname();
+    const router = useRouter();
+  
+    const handleLogout = () => {
+      logout();
+      setIsLoading(true);
+      if (protectedRoutes.some((route) => pathname.match(route))) {
+        router.push("/");
+      }
+    };
+    const url =
+        user?.role === "student"
+            ? "/student/dashboard"
+            : user?.role === "tutor"
+                ? "/teacher/dashboard"
+                : "/dashboard";
 
     return (
         <nav className="bg-[#40282C] shadow-md">
@@ -172,7 +189,7 @@ export default function Navbar() {
                 </ul>
 
                 {/* Right Side - Profile Image & Dropdown */}
-                {!user ? (<Link href={`/login?redirect=${pathname}`}>Login</Link>) : (<div className="relative">
+                {!user ? (<Link href={`/login?redirect=${pathname}`} className="bg-white text-[#40282C] px-4 py-2 rounded-md">Login</Link>) : (<div className="relative">
                     <button onClick={() => setIsOpen(!isOpen)} className="flex items-center">
                         <Image
                             src="https://i.pravatar.cc/40"
@@ -186,18 +203,29 @@ export default function Navbar() {
                     {/* Dropdown Menu */}
                     {isOpen && (
                         <div className="absolute right-0 mt-1 w-48 bg-white shadow-lg rounded-lg border z-50 duration-500 ease-in-out">
-                            <p className="px-4 py-2 text-gray-700 font-semibold">My Account</p>
                             <ul className="text-gray-700">
                                 <ul className="flex flex-col md:hidden space-x-6 text-gray-700 font-medium">
-                                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Home</li>
-                                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Find Tutors</li>
-                                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">About</li>
-                                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Blog</li>
-                                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">FAQ</li>
+                                    <Link href="/">
+                                        <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Home</li>
+                                    </Link>
+                                    <Link href="/findTutors">
+                                        <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Find Tutors</li>
+                                    </Link>
+                                    <Link href="/about">
+                                        <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">About</li>
+                                    </Link>
+                                    <Link href={"/blog"}>
+                                        <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Blog</li>
+                                    </Link>
+                                    <Link href={"/faq"}>
+                                        <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">FAQ</li>
+                                    </Link>
                                 </ul>
                                 <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Profile</li>
-                                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Dashboard</li>
-                                <li className="px-4 py-2 text-red-500 hover:bg-gray-100 flex items-center gap-2 cursor-pointer">
+                                <Link href={url}>
+                                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Dashboard</li>
+                                </Link>
+                                <li onClick={handleLogout} className="px-4 py-2 text-red-500 hover:bg-gray-100 flex items-center gap-2 cursor-pointer">
                                     <LogOut size={16} /> Log Out
                                 </li>
                             </ul>
