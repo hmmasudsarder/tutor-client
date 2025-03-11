@@ -16,19 +16,23 @@ export default function Navbar() {
     };
     const pathname = usePathname();
     const router = useRouter();
-  
+
     const handleLogout = () => {
-      logout();
-      setIsLoading(true);
-      if (protectedRoutes.some((route) => pathname.match(route))) {
-        router.push("/");
-      }
+        logout();
+        setIsLoading(true);
+        if (protectedRoutes.some((route) => pathname.match(route))) {
+            router.push("/");
+        }
     };
-    const url =
+    const url = user?.role === "student" ? "/student/dashboard"
+        : user?.role === "tutor"
+            ? "/teacher/dashboard"
+            : "/dashboard";
+    const profileurl =
         user?.role === "student"
             ? "/student/dashboard"
             : user?.role === "tutor"
-                ? "/teacher/dashboard"
+                ? "/teacher/profile"
                 : "/dashboard";
 
     return (
@@ -221,7 +225,9 @@ export default function Navbar() {
                                         <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">FAQ</li>
                                     </Link>
                                 </ul>
-                                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Profile</li>
+                                <Link href={profileurl}>
+                                    <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Profile</li>
+                                </Link>
                                 <Link href={url}>
                                     <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Dashboard</li>
                                 </Link>
