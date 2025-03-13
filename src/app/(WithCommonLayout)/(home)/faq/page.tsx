@@ -35,10 +35,10 @@ const page = () => {
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-5">
-                                <AccordionTrigger className="text-[18px] font-bold coursor-pointer">What if I'm not satisfied with a tutor?
+                                <AccordionTrigger className="text-[18px] font-bold coursor-pointer">What if I&apos;m not satisfied with a tutor?
                                 </AccordionTrigger>
                                 <AccordionContent className="text-[16px ]">
-                                    If you're not satisfied with a tutor for any reason, you can request a different tutor or receive a refund for the session. We strive to match you with the best tutor for your needs.
+                                    If you&apos;re not satisfied with a tutor for any reason, you can request a different tutor or receive a refund for the session. We strive to match you with the best tutor for your needs.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-6">
