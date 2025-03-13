@@ -65,13 +65,13 @@ export default function Blog() {
       
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filteredArticles.map((article, index) => (
-          <div key={index} className="bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden">
+          <div key={index} className="bg-[#40282c] text-white rounded-lg shadow-lg overflow-hidden">
             <Image src={article.image} width={400} height={300} alt={article.title} className="w-full h-40 object-cover" />
             <div className="p-4">
               <span className="bg-purple-600 text-xs px-3 py-1 rounded-full text-white font-semibold">{article.category}</span>
               <h3 className="mt-3 text-lg font-bold">{article.title}</h3>
-              <p className="text-gray-400 text-sm mt-2">{article.content}</p>
-              <div className="flex justify-between items-center mt-4 text-xs text-gray-500">
+              <p className="text-gray-300 text-sm mt-2">{article.content}</p>
+              <div className="flex justify-between items-center mt-4 text-xs text-gray-300">
                 <span>{article.author}</span>
                 <span>{article.date}</span>
               </div>

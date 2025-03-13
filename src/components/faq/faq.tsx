@@ -20,7 +20,7 @@ const FaqBanner = () => {
                 <h2
                   className={`lg:text-[40px] text-[24px] font-[600] text-white mb-3`}
                 >
-                  Master Any Subject. Learn from the Best
+                  FAQ & Support
                 </h2>
                 <p
                   className={`leading-[28px]`}

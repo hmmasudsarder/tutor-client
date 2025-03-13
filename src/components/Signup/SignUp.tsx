@@ -20,6 +20,7 @@ const SignUp = () => {
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
         try {
             const res = await registerUser(data);
+            console.log(res)
             if (res?.status) {
                 toast.success(res?.message);
                 router.push("/login");

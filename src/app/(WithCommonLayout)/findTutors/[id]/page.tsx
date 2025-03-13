@@ -14,10 +14,10 @@ const TeacherDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://tutor-link-server.vercel.app/api/user");
+        const response = await fetch("http://localhost:5000/api/user");
         const data = await response.json();
 
-        const tutorData = data.result.find(
+        const tutorData = data?.result?.find(
           (tutor: ITutors) => String(tutor?._id) === String(id)
         );
         if (tutorData) {

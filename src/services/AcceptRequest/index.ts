@@ -3,7 +3,7 @@
 export const getAcceptRequsts = async (email: string) => {
     try {
         const res = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_API}api/requests/get/${email}`,
+            `${process.env.NEXT_PUBLIC_BASE_API}/api/requests/get/${email}`,
             {
                 next: {
                     tags: ["PRODUCT"],

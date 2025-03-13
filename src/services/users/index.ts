@@ -4,7 +4,7 @@
 export const getAllUser = async () => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_API}api/user`,
+        `${process.env.NEXT_PUBLIC_BASE_API}/api/user`,
         {
           next: {
             tags: ["USER"], // Next.js caching tag
@@ -29,7 +29,7 @@ export const getAllUser = async () => {
   export const updateUser = async (userData: any, userEmail: string): Promise<any> => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_API}api/user/${userEmail}`,
+        `${process.env.NEXT_PUBLIC_BASE_API}/api/user/${userEmail}`,
         {
           method: "PUT",
           headers: {
@@ -57,7 +57,7 @@ export const getAllUser = async () => {
   export const getStudentRequst = async (userId: string) => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_API}api/user/get/${userId}`,
+        `${process.env.NEXT_PUBLIC_BASE_API}/api/user/get/${userId}`,
         {
           next: {
             tags: ["USER"],
