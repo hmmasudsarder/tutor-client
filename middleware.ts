@@ -6,7 +6,7 @@ type Role = keyof typeof roleBasedPrivateRoutes;
 const authRoutes = ["/login", "/register",];
 
 const roleBasedPrivateRoutes = {
-    tutor: [/^\/tutor/ ],
+    tutor: [/^\/teacher/ ],
     student: [/^\/student/, /^\/profile/]
 
 
@@ -44,7 +44,7 @@ export const config = {
     matcher: [
         "/login",
         "/profile",
-        "/tutors/:path*", 
+        "/teacher/:path*", 
         "/student/:path*",
     ],
 };

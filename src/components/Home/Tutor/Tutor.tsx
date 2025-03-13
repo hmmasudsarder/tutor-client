@@ -61,7 +61,7 @@ const Tutor = () => {
                 {tutor?.location}
               </span>
               <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                271 Views
+                {tutor?.subject}
               </span>
             </div>
             <div className="px-6 mt-3 mb-2 w-full pb-4">

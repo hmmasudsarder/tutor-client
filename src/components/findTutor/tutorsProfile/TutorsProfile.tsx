@@ -20,7 +20,7 @@ export default function TutorsProfile({
     <div className="  p-4">
       <Card className="w-full max-w-sm bg-[#f0ebeb] text rounded-xl shadow-lg">
         <CardContent className="flex flex-col items-center p-6">
-          <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white">
+          <div className="relative w-52 h-52 overflow-hidden border-4 border-white">
             <Image src={photo} alt="Profile" layout="fill" objectFit="cover" />
             <span className="absolute bottom-0 right-0 bg-white p-1 rounded-full">
               <CheckCircle className="text-green-500 w-5 h-5" />
