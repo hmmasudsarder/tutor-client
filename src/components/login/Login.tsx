@@ -25,9 +25,8 @@ const Login = () => {
         try {
             const res = await loginUser(data);
             setIsLoading(true)
-            console.log(res);
 
-            if (res?.success) {
+            if (res?.status) {
                 toast.success(res?.message);
                 router.push("/");
                 if (redirect) {
@@ -36,13 +35,11 @@ const Login = () => {
                     router.push("/");
                 }
             } else {
-                toast.success(res?.message);
-                router.push('/')
+                toast.error(res?.message);
             }
         } catch (error) {
             console.error(error);
         }
-        console.log(data);
     };
     return (
         <div className="lg:flex h-screen">
