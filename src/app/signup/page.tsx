@@ -1,10 +1,14 @@
 import SignUp from "@/components/Signup/SignUp";
+import { Suspense } from "react";
 
 
 export default function signUpPage() {
   return (
     <>
-      <SignUp/>
+      <Suspense fallback={<div>Loading...</div>}>
+        <SignUp />
+      </Suspense>
+
     </>
   );
 }

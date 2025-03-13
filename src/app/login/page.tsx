@@ -1,10 +1,12 @@
 import Login from '@/components/login/Login'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const page = () => {
   return (
     <div>
+      <Suspense fallback={<div>Loading...</div>}>
       <Login />
+    </Suspense>
     </div>
   )
 }

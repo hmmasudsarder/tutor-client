@@ -77,7 +77,7 @@ const AcceptRequest = () => {
 
   return (
     <div>
-      <h1 className="text-3xl text-center text-orange-400 mb-10">
+      <h1 className="text-3xl text-center text-[#e73b3866] mb-10">
         My Requests
       </h1>
 
