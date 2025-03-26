@@ -64,7 +64,7 @@ export default function Blog() {
       />
       
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredArticles.map((article, index) => (
+        {filteredArticles?.map((article, index) => (
           <div key={index} className="bg-[#40282c] text-white rounded-lg shadow-lg overflow-hidden">
             <Image src={article.image} width={400} height={300} alt={article.title} className="w-full h-40 object-cover" />
             <div className="p-4">

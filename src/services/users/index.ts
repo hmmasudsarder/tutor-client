@@ -4,7 +4,7 @@
 export const getAllUser = async () => {
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_API}/api/user`,
+        `http://localhost:5000/api/user`,
         {
           next: {
             tags: ["USER"], // Next.js caching tag

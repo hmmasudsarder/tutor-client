@@ -104,7 +104,7 @@ const AcceptRequest = () => {
           <TableBody>
             {/* If there are requests, map through and display them */}
             {requests.length > 0 ? (
-              requests.map((request) => (
+              requests?.map((request) => (
                 <TableRow key={request._id}>
                   <TableCell className="font-medium">{request.name}</TableCell>
                   <TableCell>{request.salary}</TableCell>

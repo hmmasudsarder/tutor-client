@@ -3,16 +3,17 @@ import { getAllUser } from '@/services/users';
 import { ITutors } from '@/types';
 import Image from 'next/image'
 import Link from 'next/link'
+// import img from "../../../assets/academic-info.png";
 import React, { useEffect, useState } from 'react'
 
 const Tutor = () => {
   const [tutorsData, setTutorsData] = useState<ITutors[]>([]);
-  console.log(tutorsData);
+  console.log({tutorsData});
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getAllUser(); // Await API call
-        if (response.status) {
+        const response = await getAllUser();
+        if (response) {
           setTutorsData(response.result);
         } else {
           console.error("Failed to fetch users:", response.message);
@@ -38,14 +39,14 @@ const Tutor = () => {
         </Link>
       </div>
       <div className="grid xl:grid-cols-4  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center gap-5 ">
-        {tutorsData.map((tutor) => (
+        {tutorsData?.map((tutor) => (
           <div
             key={tutor._id}
             className=" lg:w-[300px] w-[350px] rounded-lg overflow-hidden shadow-lg bg-[#ffffffb6] mx-4"
           >
             <div className="w-full h-48 relative">
               <Image
-                src={tutor?.photo} // Update this path to your image
+                src={"https://i.ibb.co/7GdJ9rP/teacher.jpg"} 
                 alt="img"
                 layout="fill"
                 objectFit="cover"
@@ -53,7 +54,7 @@ const Tutor = () => {
             </div>
             <div className="px-4 py-4 text-center">
               <div className="font-bold text-lg mb-2 text-black">{tutor?.name}</div>
-              <p className="text-gray-700 text-base">{tutor.bio}</p>
+              <p className="text-gray-700 text-base">{tutor?.bio}</p>
               {/* <div className="w-full border border-gray-700 mt-2"></div> */}
             </div>
             <div className="px-6 flex justify-between pt-2 pb-2">

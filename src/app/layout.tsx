@@ -28,7 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className='scroll-smooth'>
-      <body className={inter.className}>
+      <body className={inter.className} data-new-gr-c-s-check-loaded="14.1228.0"
+        data-gr-ext-installed="">
         <Providers>
           <Toaster
             position="top-right"

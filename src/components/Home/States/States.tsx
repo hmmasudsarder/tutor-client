@@ -30,7 +30,7 @@ const States = () => {
             >
                 <div className="statesBanner container mx-auto my-10 h-[500px] flex items-center justify-center rounded-md">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-36 p-5">
-                        {[{ end: 50, label: "Teachers" }, { end: 1500, label: "Students" }, { end: 94, label: "Success %" }, { end: 2024, label: "The Year Founded" }].map((item, index) => (
+                        {[{ end: 50, label: "Teachers" }, { end: 1500, label: "Students" }, { end: 94, label: "Success %" }, { end: 2024, label: "The Year Founded" }]?.map((item, index) => (
                             <div key={index} className="flex flex-col items-center justify-center text-center text-white">
                                 <div className="border-2 border-[#999] p-5 rounded-full mb-3">
                                     <Image priority src={teacherImage} alt="" className="imageHover lg:w-[60px] lg:h-[60px] w-[30px] h-[30px]" />
