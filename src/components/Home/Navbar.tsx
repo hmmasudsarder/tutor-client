@@ -11,6 +11,7 @@ import { protectedRoutes } from "@/contants";
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const { user, setIsLoading } = useUser();
+    const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
     const isActiveLink = (href: string) => {
         return href === pathname;
     };
@@ -24,6 +25,9 @@ export default function Navbar() {
             router.push("/");
         }
     };
+
+    const toggleMegaMenu = (state: boolean) => setIsMegaMenuOpen(state);
+
     const url = user?.role === "student" ? "/student/dashboard"
         : user?.role === "tutor"
             ? "/teacher/dashboard"
@@ -179,6 +183,79 @@ export default function Navbar() {
                         Blog
                     </Link>
                     </li>
+                    <li
+                        className="pt-2 relative"
+                        onMouseEnter={() => toggleMegaMenu(true)}
+                        onMouseLeave={() => toggleMegaMenu(false)}
+                    >
+                        <Link
+                            href="/subject"
+                            className={
+                                isActiveLink("/subject")
+                                    ? "bg-white text-[#40282C] px-4 py-2 rounded-md"
+                                    : "px-4 py-2 rounded-md"
+                            }
+                        >
+                            Subject
+                        </Link>
+                        {isMegaMenuOpen && (
+                            <div className="absolute -left-96 mt-2 w-[800px] bg-[#40282C] shadow-lg p-4 border border-gray-300 z-20">
+                                <div className="grid grid-cols-3 gap-6 text-white">
+                                    <div>
+                                        <h3 className="font-bold mb-2">শ্রেণি</h3>
+                                        <ul className="space-y-2">
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">ষষ্ঠ শ্রেণি</Link>
+                                            </li>
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">সপ্তম শ্রেণি</Link>
+                                            </li>
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">অষ্টম শ্রেণি</Link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold mb-2">নবম ও দশম</h3>
+                                        <ul className="space-y-2">
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">জীববিজ্ঞান পাঠ সহায়িকা</Link>
+                                            </li>
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">রসায়ন পাঠ সহায়িকা</Link>
+                                            </li>
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">গণিত পাঠ সহায়িকা</Link>
+                                            </li>
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">ইংরেজি পাঠ সহায়িকা</Link>
+                                            </li>
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">উচ্চতর গণিত পাঠ সহায়িকা</Link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold mb-2">এইচএসসি</h3>
+                                        <ul className="space-y-2">
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">উচ্চতর গণিত</Link>
+                                            </li>
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">জীববিজ্ঞান পাঠ সহায়িকা</Link>
+                                            </li>
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">পদার্থবিজ্ঞান পাঠ সহায়িকা</Link>
+                                            </li>
+                                            <li className="hover:text-secondary">
+                                                <Link href="/">রসায়ন পাঠ সহায়িকা</Link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </li>
                     <li className="pt-2"> <Link
                         href="/faq"
                         className={
@@ -220,6 +297,44 @@ export default function Navbar() {
                                     </Link>
                                     <Link href={"/blog"}>
                                         <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Blog</li>
+                                    </Link>
+                                    <Link href={"/subject"}>
+                                        <div className="relative" onMouseEnter={() => toggleMegaMenu(true)} >
+                                            <button className="hover:bg-blue-600 py-2 px-4 rounded-tr-xl rounded-tl-xl">Subject</button>
+                                            {isMegaMenuOpen && (
+                                                <div className="absolute -left-96 mt-2 w-[800px] bg-white shadow-lg p-4 border border-gray-300 z-20" onMouseLeave={() => toggleMegaMenu(false)}>
+                                                    <div className="grid grid-cols-3 gap-6 text-black">
+                                                        <div>
+                                                            <h3 className="font-bold mb-2">শ্রেণি</h3>
+                                                            <ul className="space-y-2">
+                                                                <li className="hover:text-secondary"><Link href="/">ষষ্ঠ শ্রেণি</Link></li>
+                                                                <li className="hover:text-secondary"><Link href="/">সপ্তম শ্রেণি</Link></li>
+                                                                <li className="hover:text-secondary"><Link href="/">অষ্টম শ্রেণি</Link></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div>
+                                                            <h3 className="font-bold mb-2">নবম ও দশম</h3>
+                                                            <ul className="space-y-2">
+                                                                <li className="hover:text-secondary"><Link href="/">জীববিজ্ঞান পাঠ সহায়িকা</Link></li>
+                                                                <li className="hover:text-secondary"><Link href="/">রসায়ন পাঠ সহায়িকা</Link></li>
+                                                                <li className="hover:text-secondary"><Link href="/">গণিত পাঠ সহায়িকা</Link></li>
+                                                                <li className="hover:text-secondary"><Link href="/">ইংরেজি পাঠ সহায়িকা</Link></li>
+                                                                <li className="hover:text-secondary"><Link href="/">উচ্চতর গণিত পাঠ সহায়িকা</Link></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div>
+                                                            <h3 className="font-bold mb-2">এইচএসসি</h3>
+                                                            <ul className="space-y-2">
+                                                                <li className="hover:text-secondary"><Link href="/">উচ্চতর গণিত</Link></li>
+                                                                <li className="hover:text-secondary"><Link href="/">জীববিজ্ঞান পাঠ</Link> সহায়িকা</li>
+                                                                <li className="hover:text-secondary"><Link href="/">পদার্থবিজ্ঞান পাঠ</Link> সহায়িকা</li>
+                                                                <li className="hover:text-secondary"><Link href="/">রসায়ন পাঠ</Link> সহায়িকা</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
                                     </Link>
                                     <Link href={"/faq"}>
                                         <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">FAQ</li>
